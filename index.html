@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Page</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #ece9e6, #ffffff);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-primary text-white text-center">
+                        <h1>পশ্চিম মাসিমপুর হিলফুল ফুজুল যুবসংঘ🤚✊</h1>
+                    </div>
+                    <div class="card-body">
+                        <form id="nameForm">
+                            <div class="form-group">
+                                <label for="nameInput">Enter your name:</label>
+                                <input type="text" class="form-control" id="nameInput" placeholder="Your Name">
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                        </form>
+                        <div class="welcome-message alert alert-success mt-4 d-none"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-8 card shadow-sm">
+                <p class="text-justify ">আসসালামু আলাইকুম। 
+                    প্রিয় এলাকাবাসী, আশা করছি আপনারা আল্লাহর অশেষ রহমতে ভালো আছেন। প্রাক ইসলামি যুগে রাসূল সা. এর হাতে গড়ে ওঠা সংগঠন 'হিলফুল ফুজুল' এর নামানুসারে আমরা আমাদের এলাকায় যুবকদের নিয়ে 'পশ্চিম মাসিমপুর হিলফুল ফুজুল যুবসংঘ' নামে একটি সংগঠন গড়ে তুলেছি। 
+                    আগামী ঈদুল আজহাকে সামনে রেখে আনুষ্ঠানিকভাবে আমরা আমাদের কার্যক্রম শুরু করতে যাচ্ছি। তারই, ধারাবাহিকতায় ভলান্টিয়ারদের মধ্যে কাজের স্পৃহা সৃষ্টি ও সংগঠনকে মানুষের সামনে তুলে ধরার জন্য আমরা সংগঠনের লোগো ও নামাঙ্কিত টি-শার্ট তৈরি করেছি।
+                    আশা করছি, আমরা একতাবদ্ধভাবে সমাজ সংস্কার, ধর্মীয় মূল্যবোধ সৃষ্টি, গরীব ও অসহায় মানুষের পাশে দাঁড়াতে পারব। আমরা আরও প্রত্যাশা করছি, এলাকার সকল শ্রেণি-পেশার মানুষ ও প্রবাসে অবস্থানরত ব্যক্তিবর্গ তাদের নিজ নিজ জায়গা থেকে আমাদের পাশে থাকবেন। 
+                    সত্য, সুন্দর ও সমতার সমাজ বিনির্মানে আমরা আমাদের কার্যক্রম চালিয়ে যাব, ইনশা-আল্লাহ। মহান রব আমাদের সহায় হোন।
+                </p>
+            </div>
+        </div>
+        <!-- <div class="row justify-content-center mt-4">
+            <div class="col-md-4 mb-3">
+                <img src="1.jpg" alt="Image 1" class="img-fluid">
+            </div>
+            <div class="col-md-4 mb-3">
+                <img src="2.jpg" alt="Image 2" class="img-fluid">
+            </div>
+        </div> -->
+    </div>
+
+    <!-- Bootstrap Modal -->
+    <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmationModalLabel">Confirmation</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Are you a member of পশ্চিম মাসিমপুর হিলফুল ফুজুল যুবসংঘ?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="confirmNo">No</button>
+                    <button type="button" class="btn btn-primary" id="confirmYes">Yes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#confirmationModal').modal('show');
+
+            $('#confirmYes').click(function() {
+                $('#confirmationModal').modal('hide');
+                window.location.href = "#";
+            });
+
+            $('#confirmNo').click(function() {
+                window.location.href = "https://www.youtube.com/watch?v=tcniiQIVECs&t=39s"; // Redirect to YouTube
+            });
+
+            $('#nameForm').submit(function(event) {
+                event.preventDefault();
+                var name = $('#nameInput').val().trim();
+                if (name) {
+                    $('.welcome-message').text('Welcome, ' + name + ' পশ্চিম মাসিমপুর হিলফুল ফুজুল যুবসংঘ🤚✊ পক্ষ থেকে।।.').removeClass('d-none');
+                } else {
+                    $('.welcome-message').text('Please enter your name!').removeClass('d-none');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
